@@ -31,6 +31,8 @@ def create_position(request):
         longitude=request.POST.get("longitude",False)
         latitude_two=request.POST.get("latitude_two",False)
         longitude_two=request.POST.get("longitude_two",False)
+        speed_of_car=request.POST.get("speed_of_car",False)
+
         l=radians(int(float(latitude)))
         l2=radians(int(float(longitude)))
         p=radians(int(float(latitude_two)))
@@ -41,8 +43,9 @@ def create_position(request):
         inverse=2*asin(sqrt(formula))
         earth_radius=6371
         distance=inverse*earth_radius
+        eta=distance/(int(float(speed_of_car)))
         print(distance)
-        return HttpResponse(distance)
+        return HttpResponse(f' Your vehicle that is travelling for {speed_of_car} in a distance of {distance}, will arrive in a duration of {eta} mins')
 
             
     else:
