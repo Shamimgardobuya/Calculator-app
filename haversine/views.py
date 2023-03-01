@@ -44,8 +44,9 @@ def create_position(request):
         earth_radius=6371
         distance=inverse*earth_radius
         eta=distance/(int(float(speed_of_car)))
+        time_in_minutes=eta/60 *60
         print(distance)
-        return HttpResponse(f' Your vehicle that is travelling for {speed_of_car} in a distance of {distance}, will arrive in a duration of {eta} mins')
+        return HttpResponse(f' Your vehicle that is travelling for {speed_of_car} in a distance of {distance: .1f}, will arrive in a duration of  {time_in_minutes : .0f} mins')
 
             
     else:
