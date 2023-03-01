@@ -3,9 +3,8 @@ from django import views
 from django.urls import path 
 from .views import create_position,calculate_position,havepage
 urlpatterns=[
-    path('calculate/',create_position,name='calculate'),
-    path('calculate/',create_position,name='calculate'),
-    path('have/',havepage,name='have'),
+    path('',create_position,name='calculate'),
+    # path('calculate/',create_position,name='calculate'),
 
 
 
